@@ -809,6 +809,7 @@
     <Compile Include="Services\IMembershipUserService.cs" />
     <Compile Include="Services\IMemberTypeService.cs" />
     <Compile Include="Services\INotificationService.cs" />
+    <Compile Include="Services\IPackageValidationHelper.cs" />
     <Compile Include="Services\IRelationService.cs" />
     <Compile Include="Services\IPackageInstallerService.cs" />
     <Compile Include="Services\IPackagingService.cs" />
@@ -825,6 +826,7 @@
     <Compile Include="Packaging\PackageInstallationSummary.cs" />
     <Compile Include="Services\PackageInstallerService.cs" />
     <Compile Include="Packaging\PackageMetaData.cs" />
+    <Compile Include="Services\PackageValidationHelper.cs" />
     <Compile Include="Services\RelationService.cs" />
     <Compile Include="Services\ServerRegistrationService.cs" />
     <Compile Include="Services\PackagingService.cs" />
