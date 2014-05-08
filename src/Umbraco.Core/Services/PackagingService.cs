@@ -996,29 +996,29 @@ namespace Umbraco.Core.Services
         /// <summary>
         /// Imports and saves the 'DictionaryItems' part of the package xml as a list of <see cref="IDictionaryItem"/>
         /// </summary>
-        /// <param name="element">Xml to import</param>
+        /// <param name="dictionaryItemElementList">Xml to import</param>
         /// <param name="raiseEvents">Optional parameter indicating whether or not to raise events</param>
         /// <returns>An enumerable list of dictionary items</returns>
-        public IEnumerable<IDictionaryItem> ImportDictionaryItems(XElement element, bool raiseEvents = true)
+        public IEnumerable<IDictionaryItem> ImportDictionaryItems(XElement dictionaryItemElementList, bool raiseEvents = true)
         {
             if (raiseEvents)
             {
-                if (ImportingDictionaryItem.IsRaisedEventCancelled(new ImportEventArgs<IDictionaryItem>(element), this))
+                if (ImportingDictionaryItem.IsRaisedEventCancelled(new ImportEventArgs<IDictionaryItem>(dictionaryItemElementList), this))
                     return Enumerable.Empty<IDictionaryItem>();
             }
 
             var languages = _localizationService.GetAllLanguages().ToList();
-            return ImportDictionaryItems(element, languages, raiseEvents);
+            return ImportDictionaryItems(dictionaryItemElementList, languages, raiseEvents);
         }
 
-        private IEnumerable<IDictionaryItem> ImportDictionaryItems(XElement element, List<ILanguage> languages, bool raiseEvents)
+        private IEnumerable<IDictionaryItem> ImportDictionaryItems(XElement dictionaryItemElementList, List<ILanguage> languages, bool raiseEvents)
         {
             var items = new List<IDictionaryItem>();
-            foreach (var dictionaryItemElement in element.Elements(Constants.Packaging.DictionaryItemNodeName))
+            foreach (var dictionaryItemElement in dictionaryItemElementList.Elements(Constants.Packaging.DictionaryItemNodeName))
                 items.AddRange(ImportDictionaryItem(dictionaryItemElement, languages, raiseEvents));
 
             if (raiseEvents)
-                ImportedDictionaryItem.RaiseEvent(new ImportEventArgs<IDictionaryItem>(items, element, false), this);
+                ImportedDictionaryItem.RaiseEvent(new ImportEventArgs<IDictionaryItem>(items, dictionaryItemElementList, false), this);
 
             return items;
         }
