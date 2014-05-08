@@ -342,6 +342,7 @@
     <Compile Include="Models\IMemberGroup.cs" />
     <Compile Include="Models\IRelation.cs" />
     <Compile Include="Models\IRelationType.cs" />
+    <Compile Include="Models\IStyleSheet.cs" />
     <Compile Include="Models\Membership\MembershipScenario.cs" />
     <Compile Include="Models\MemberGroup.cs" />
     <Compile Include="Models\MemberTypePropertyProfileAccess.cs" />
@@ -354,9 +355,12 @@
     <Compile Include="Models\PublishedContent\PublishedContentModelFactoryResolver.cs" />
     <Compile Include="Models\TaggableObjectTypes.cs" />
     <Compile Include="Models\TemplateNode.cs" />
-    <Compile Include="Packaging\PackageImportIssues.cs" />
-    <Compile Include="Packaging\UnpackHelper.cs" />  
     <Compile Include="Models\UmbracoEntityExtensions.cs" />
+    <Compile Include="Packaging\IUnpackHelper.cs" />
+    <Compile Include="Packaging\UnpackHelper.cs" />
+    <Compile Include="Packaging\PackageInstallationSummary.cs" />
+    <Compile Include="Packaging\PackageMetaData.cs" />
+    <Compile Include="Packaging\PackageImportIssues.cs" />
     <Compile Include="Packaging\Models\InstallAction.cs" />
     <Compile Include="Packaging\Models\InstallationSummary.cs" />
     <Compile Include="Packaging\Models\MetaData.cs" />
@@ -364,8 +368,8 @@
     <Compile Include="Packaging\PackageBuilding.cs" />
     <Compile Include="Packaging\PackageExtraction.cs" />
     <Compile Include="Packaging\PackageInstallation.cs" />
-    <Compile Include="Persistence\DatabaseModelDefinitions\DbIndexDefinition.cs" />
     <Compile Include="Packaging\PackageBinaryInspector.cs" />
+    <Compile Include="Persistence\DatabaseModelDefinitions\DbIndexDefinition.cs" />
     <Compile Include="Persistence\EntityNotFoundException.cs" />
     <Compile Include="Persistence\Factories\MemberGroupFactory.cs" />
     <Compile Include="Persistence\Mappers\MemberGroupMapper.cs" />
@@ -1007,7 +1011,6 @@
     <Compile Include="Serialization\SerializationExtensions.cs" />
     <Compile Include="Serialization\SerializationService.cs" />
     <Compile Include="Serialization\StreamedResult.cs" />
-    <Compile Include="Models\IMacroPropertyType.cs" />
     <Compile Include="Services\ContentService.cs" />
     <Compile Include="Services\ContentServiceExtensions.cs" />
     <Compile Include="Services\ContentTypeService.cs" />
@@ -1022,7 +1025,6 @@
     <Compile Include="Services\IEntityService.cs" />
     <Compile Include="Services\IFileService.cs" />
     <Compile Include="Services\ILocalizationService.cs" />
-    <Compile Include="Models\IMacro.cs" />
     <Compile Include="Services\IMacroProperty.cs" />
     <Compile Include="Services\IMacroService.cs" />
     <Compile Include="Services\IMediaService.cs" />
@@ -1032,7 +1034,6 @@
     <Compile Include="Services\IMembershipRoleService.cs" />
     <Compile Include="Services\IMembershipUserService.cs" />
     <Compile Include="Services\IMemberTypeService.cs" />
-    <Compile Include="Services\IPackagingService.cs" />
     <Compile Include="Services\INotificationService.cs" />
     <Compile Include="Services\IPackageValidationHelper.cs" />
     <Compile Include="Services\IRelationService.cs" />
@@ -1041,7 +1042,6 @@
     <Compile Include="Services\IPackagingService.cs" />
     <Compile Include="Services\IService.cs" />
     <Compile Include="Services\ITagService.cs" />
-    <Compile Include="Packaging\IUnpackHelper.cs" />
     <Compile Include="Services\IUserService.cs" />
     <Compile Include="Services\LocalizationService.cs" />
     <Compile Include="Services\MacroService.cs" />
@@ -1051,9 +1051,7 @@
     <Compile Include="Services\MemberService.cs" />
     <Compile Include="Services\MemberTypeService.cs" />
     <Compile Include="Services\NotificationService.cs" />
-    <Compile Include="Packaging\PackageInstallationSummary.cs" />
     <Compile Include="Services\PackageInstallerService.cs" />
-    <Compile Include="Packaging\PackageMetaData.cs" />
     <Compile Include="Services\PackageValidationHelper.cs" />
     <Compile Include="Services\RelationService.cs" />
     <Compile Include="Services\SectionService.cs" />
